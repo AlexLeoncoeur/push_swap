@@ -6,11 +6,33 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:58:55 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/06/26 15:14:43 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:04:08 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_pushswap_lstadd_back(t_stack_list **lst, t_stack_list *new)
+{
+	t_stack_list	*aux;
+
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		aux = ft_pushswap_lstlast(*lst);
+		aux->next = new;
+	}
+}
+
+void	ft_pushswap_lstadd_front(t_stack_list **lst, t_stack_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
 
 t_stack_list	*ft_pushswap_lstlast(t_stack_list *lst)
 {
@@ -24,16 +46,19 @@ t_stack_list	*ft_pushswap_lstlast(t_stack_list *lst)
 	return (aux);
 }
 
-t_stack_list	*ft_pushswap_lstnew(void *nb)
+t_stack_list	*ft_pushswap_lstnew(int nb)
 {
 	t_stack_list	*newlist;
 
-	newlist = malloc(sizeof(t_list));
+	newlist = malloc(sizeof(t_stack_list));
 	if (newlist == NULL)
 		return (NULL);
 	newlist->nb = nb;
-    newlist->pos = 1;
-    newlist->next_pos = NULL;
+	newlist->pos = -1;
+	newlist->target_pos = -1;
+	newlist->index = -1;
+	newlist->cost_a = -1;
+	newlist->cost_b = -1;
 	newlist->next = NULL;
 	return (newlist);
 }
