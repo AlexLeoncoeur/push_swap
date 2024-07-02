@@ -6,11 +6,26 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:58:55 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/01 16:04:08 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/02 11:03:15 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_pushswap_lstsize(t_stack_list *lst)
+{
+	t_stack_list	*aux;
+	int				i;
+
+	aux = lst;
+	i = 0;
+	while (aux)
+	{
+		i++;
+		aux = aux->next;
+	}
+	return (i);
+}
 
 void	ft_pushswap_lstadd_back(t_stack_list **lst, t_stack_list *new)
 {
