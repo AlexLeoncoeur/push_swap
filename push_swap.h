@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/02 11:16:57 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:21:03 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ typedef struct s_data_lst
 int				ft_pushswap_lstsize(t_stack_list *lst);
 void			ft_pushswap_lstadd_back(t_stack_list **lst, t_stack_list *new);
 void			ft_pushswap_lstadd_front(t_stack_list **lst, t_stack_list *new);
+void			ft_check_stack_a(t_data_lst *data_lst);
+t_stack_list	*ft_prepare_stack_a_beta(int argc, char **argv);
 t_stack_list	*ft_pushswap_lstlast(t_stack_list *lst);
+t_stack_list	*ft_prepare_stack_a_alpha(char **argv);
 t_stack_list	*ft_pushswap_lstnew(int nb);
 
 /********************************Movement commands****************************/

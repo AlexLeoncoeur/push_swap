@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/02 13:18:56 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:01:36 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 t_stack_list	*ft_prepare_stack_a_alpha(char **argv)
 {
 	int				i;
+	char			**numbers;
 	t_stack_list	*aux;
 	t_stack_list	*a_stack;
 
-	i = ft_strlen(argv[1]) - 1;
-	if (atoi_checker() == 1)
-		//error
-	a_stack = ft_pushswap_lstnew(argv[1][i] - '0');
+	i = 0;
+	numbers = ft_split(argv[1], ' ');
+	while (numbers[i + 1])
+		i++;
+	//if (atoi_checker() == 1);
+	a_stack = ft_pushswap_lstnew(ft_atoi(numbers[i]));
 	while (--i >= 0)
 	{
-		aux = ft_pushswap_lstnew(argv[1][i] - '0');
+		aux = ft_pushswap_lstnew(ft_atoi(numbers[i]));
 		ft_pushswap_lstadd_back(&aux, a_stack);
 		a_stack = aux;
 	}
