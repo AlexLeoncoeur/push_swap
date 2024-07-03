@@ -1,4 +1,4 @@
-CFILES = push_swap.c order_cmd.c push_swap_utils.c stack_management.c
+CFILES = push_swap.c order_cmd.c push_swap_utils.c stack_management.c error.c leaks.c check_argv.c
 
 BONUS_CFILES = 
 
