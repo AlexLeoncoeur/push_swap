@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:54:13 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/03 15:03:58 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:41:07 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_check_nb(int argc, char **argv)
 		while (numbers[j])
 		{
 			if (ft_strcmp(numbers[i], numbers[j]) == 0)
-				return (ft_puterrorstr("Error: Invalid argument\n"), 1);
+				return (1);
 			j++;
 		}
 		i++;
@@ -63,21 +63,42 @@ int	ft_check_char(int argc, char **argv)
 	{
 		while (argv[1][i++])
 			if ((argv[1][i] < '0' || argv[1][i] > '9') && (argv[1][i] != ' '))
-				return (ft_puterrorstr("Error: Invalid argument\n"), 1);
+				return (1);
 	}
 	else
 	{
-		i = 1;
-		while (argv[i])
+		while (argv[++i])
 		{
-			j = -1;
-			while (argv[i][j++])
+			j = 0;
+			while (argv[i][j])
 			{
 				if ((argv[i][j] < '0' || argv[i][j] > '9'))
-					return (ft_puterrorstr("Error: Invalid argument\n"), 1);
+					return (1);
+				j++;
 			}
-			i++;
 		}
+	}
+	return (0);
+}
+
+int	ft_check_order(t_stack_list *stack)
+{
+	t_stack_list	*aux;
+	t_stack_list	*tmp;
+	int				min;
+
+	tmp = stack;
+	while (tmp)
+	{
+		aux = tmp;
+		min = aux->nb;
+		while (aux && aux->next)
+		{
+			aux = aux->next;
+			if (aux->nb < min)
+				return (1);
+		}
+		tmp = tmp->next;
 	}
 	return (0);
 }

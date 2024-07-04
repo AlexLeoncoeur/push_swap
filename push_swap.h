@@ -6,13 +6,17 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/03 14:33:17 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:08:37 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "./libft/libft.h"
+
+# ifndef MAX
+#  define MAX 2147483647
+# endif
 
 typedef struct s_stack_list
 {
@@ -38,6 +42,7 @@ typedef struct s_data_lst
 
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_check_char(int argc, char **argv);
+int				ft_check_order(t_stack_list *stack);
 int				ft_check_nb(int argc, char **argv);
 
 /*------------------------------ List functions ------------------------------*/

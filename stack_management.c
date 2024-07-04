@@ -6,11 +6,40 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/02 15:01:36 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:12:18 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_check_index(t_stack_list *stack) //comprobar si esto funciona
+{
+	t_stack_list	*aux;
+	t_stack_list	*tmp;
+	t_stack_list	*min_node;
+	int				min;
+	int				i;
+
+	i = 1;
+	tmp = stack;
+	while (i < ft_pushswap_lstsize(stack))
+	{
+		aux = tmp;
+		min = MAX;
+		while (aux && aux->next)
+		{
+			if (aux->nb < min && aux->index != i - 1)
+			{
+				min = aux->nb;
+				min_node = aux;
+			}
+			aux = aux->next;
+		}
+		min_node->index = i;
+		i++;
+	}
+	return (0);
+}
 
 t_stack_list	*ft_prepare_stack_a_alpha(char **argv)
 {
@@ -41,10 +70,12 @@ t_stack_list	*ft_prepare_stack_a_beta(int argc, char **argv)
 	t_stack_list	*a_stack;
 
 	i = 0;
-	a_stack = ft_pushswap_lstnew(argv[argc - 1][0] - '0');
-	while (++i < argc -1)
+	while (argv[i + 1])
+		i++;
+	a_stack = ft_pushswap_lstnew(ft_atoi(argv[argc - 1]));
+	while (--i >= 1)
 	{
-		aux = ft_pushswap_lstnew(argv[argc - 1 - i][0] - '0');
+		aux = ft_pushswap_lstnew(ft_atoi(argv[i]));
 		ft_pushswap_lstadd_back(&aux, a_stack);
 		a_stack = aux;
 	}
