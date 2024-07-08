@@ -1,5 +1,5 @@
 CFILES = push_swap.c order_cmd.c push_swap_utils.c stack_management.c error.c leaks.c \
-check_argv.c algorithm.c
+check_argv.c algorithm.c stack_check.c
 
 BONUS_CFILES = 
 

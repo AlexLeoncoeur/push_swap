@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/05 17:39:29 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:50:14 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_data_lst	*ft_define_data_lst(int argc, char **argv, t_stack_list *a_stack)
 
 int	main(int argc, char **argv)
 {
-	t_stack_list	*a_stack;
 	t_data_lst		*data_lst;
 	char			**numbers;
 
@@ -39,12 +38,20 @@ int	main(int argc, char **argv)
 		numbers = &argv[1];
 	if (ft_check_nb(numbers) == 1 || ft_check_char(numbers) == 1)
 		return (ft_puterrorstr("Error: Invalid argument\n"), 1);
-	a_stack = ft_prepare_stack_a(numbers);
-	if (ft_check_order(a_stack) == 0)
+	data_lst = ft_define_data_lst(argc, argv, NULL);
+	data_lst->a_stack = ft_prepare_stack_a(numbers);
+	if (ft_check_order(data_lst->a_stack) == 0)
 		return (0);
-	ft_prep_stack_data(a_stack);
-	data_lst = ft_define_data_lst(argc, argv, a_stack);
+	ft_prep_stack_data(data_lst->a_stack);
 	ft_algorithm(data_lst);
+	t_stack_list *aux = data_lst->a_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	}
 	return (0);
 }
 /* 
@@ -55,12 +62,4 @@ int	main(int argc, char **argv)
 	ft_push(&a_stack, &b_stack);
 	printf("%d %d %d |a\n", a_stack->nb, a_stack->next->nb, a_stack->next->next->nb);
 	printf("%d |b\n", b_stack->nb);
-
-t_stack_list *aux = a_stack;
-for (int i = 0; i < ft_pushswap_lstsize(a_stack); i++)
-{
-	printf("%d ", aux->index);
-	printf("%d ", aux->pos);
-	printf("%d\n", aux->nb);
-	aux = aux->next;
-} */
+*/

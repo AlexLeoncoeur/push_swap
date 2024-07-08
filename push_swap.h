@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/05 15:44:44 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:40:00 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int				ft_check_nb(char **numbers);
 t_stack_list	*ft_prepare_stack_a(char **numbers);
 void			ft_prep_stack_data(t_stack_list *stack);
 void			ft_check_stack(t_stack_list *stack_lst);
+void			ft_calculate_cost(t_data_lst *data);
+void			ft_check_cost(t_data_lst *data);
 int				ft_check_index(t_stack_list *stack);
 
 /*------------------------------ List functions ------------------------------*/
@@ -68,7 +70,8 @@ void			ft_swap(t_stack_list **lst);
 
 /*--------------------------------- Algorithm --------------------------------*/
 
-void			ft_order_3(t_stack_list *stack);
+void			ft_order_3(t_stack_list **stack);
+void			ft_order_5(t_data_lst *data);
 void			ft_algorithm(t_data_lst *data);
 
 /*----------------------------- Error management -----------------------------*/

@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/05 15:38:38 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:38:33 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ void	ft_prep_stack_data(t_stack_list *stack)
 {
 	ft_check_stack(stack);
 	ft_check_index(stack);
+}
+
+void	ft_check_cost(t_data_lst *data)
+{
+	ft_check_stack(data->a_stack);
+	ft_check_stack(data->b_stack);
+	ft_calculate_cost(data);
 }
 
 int	ft_check_index(t_stack_list *stack) //comprobar si esto funciona
@@ -70,7 +77,6 @@ t_stack_list	*ft_prepare_stack_a(char **numbers)
 void	ft_check_stack(t_stack_list *stack_lst)
 {
 	int				i;
-	int				j;
 	t_stack_list	*aux;
 
 	if (!stack_lst)
@@ -80,18 +86,7 @@ void	ft_check_stack(t_stack_list *stack_lst)
 	while (i < ft_pushswap_lstsize(stack_lst))
 	{
 		aux->pos = i;
-		aux->cost_a = 0;
 		aux->index = -2;
-		j = ft_pushswap_lstsize(stack_lst);
-		aux->cost_b = 1;
-		while (j-- > aux->pos)
-			aux->cost_b++;
-		j = stack_lst->pos;
-		while (j < aux->pos)
-			j++;
-		if (j > aux->cost_b)
-			aux->cost_b = j + 1;
-		aux = aux->next;
 		i++;
 	}
 }
