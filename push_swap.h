@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/08 16:40:00 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:16:26 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,27 @@ t_stack_list	*ft_pushswap_lstnew(int nb);
 
 /*----------------------------- Movement commands ----------------------------*/
 
-void			ft_push(t_stack_list **lst, t_stack_list **r_lst);
-void			ft_reverse_rotate(t_stack_list **lst);
-void			ft_rotate(t_stack_list **lst);
-void			ft_swap(t_stack_list **lst);
+t_stack_list	*ft_best_move(t_data_lst *data);
+void			ft_execute_move(t_stack_list *node, t_data_lst *data);
+
+void			ft_push_a(t_data_lst *data);
+void			ft_push_b(t_data_lst *data);
+
+void			ft_reverse_rotate_a(t_data_lst *data);
+void			ft_reverse_rotate_b(t_data_lst *data);
+void			ft_reverse_rotate_both(t_data_lst *data);
+
+void			ft_rotate_a(t_data_lst *data);
+void			ft_rotate_b(t_data_lst *data);
+void			ft_rotate_both(t_data_lst *data);
+
+void			ft_swap_a(t_data_lst *data);
+void			ft_swap_b(t_data_lst *data);
+void			ft_swap_both(t_data_lst *data);
 
 /*--------------------------------- Algorithm --------------------------------*/
 
-void			ft_order_3(t_stack_list **stack);
+void			ft_order_3(t_data_lst *data);
 void			ft_order_5(t_data_lst *data);
 void			ft_algorithm(t_data_lst *data);
 

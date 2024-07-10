@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:50:14 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:36:48 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	main(int argc, char **argv)
 	char			**numbers;
 
 	numbers = NULL;
+	if (argc <= 1)
+		return (ft_puterrorstr("Error: Invalid argument\n"), 1);
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
-	else if (argc != 1)
+	else if (argc > 2)
 		numbers = &argv[1];
 	if (ft_check_nb(numbers) == 1 || ft_check_char(numbers) == 1)
 		return (ft_puterrorstr("Error: Invalid argument\n"), 1);
