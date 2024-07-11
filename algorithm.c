@@ -6,22 +6,43 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:39:44 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 13:58:38 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:02:51 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_order_5(t_data_lst *data)
+static void	ft_pre_order(t_data_lst *data)
+{
+	t_stack_list	*aux;
+	int				length;
+	int				i;
+
+	length = ft_pushswap_lstsize(data->a_stack) / 2;
+	i = 0;
+	while (i <= ft_pushswap_lstsize(data->a_stack))
+	{
+		aux = data->a_stack;
+		if (aux->index < length)
+			ft_push_b(data);
+		else
+			ft_rotate_a(data);
+		i++;
+	}
+}
+
+void	ft_full_order(t_data_lst *data)
 {
 	t_stack_list	*best_move;
 	int				i;
+	int				b_length;
 
 	i = 0;
-	ft_push_b(data);
-	ft_push_b(data);
+	while (ft_pushswap_lstsize(data->a_stack) > 3)
+		ft_push_b(data);
+	b_length = ft_pushswap_lstsize(data->b_stack);
 	ft_order_3(data);
-	while (i < 2)
+	while (i < b_length)
 	{
 		ft_check_cost(data);
 		best_move = ft_best_move(data);
@@ -30,10 +51,12 @@ void	ft_order_5(t_data_lst *data)
 	}
 	while (data->a_stack->index != 0)
 	{
-		if (data->a_stack->index > data->a_stack->next->index)
-			ft_rotate_a(data);
 		if (data->a_stack->index != 0)
 			ft_reverse_rotate_a(data);
+		/* if (data->a_stack->index > data->a_stack->next->index)
+			ft_rotate_a(data);
+		if (data->a_stack->index != 0)
+			ft_reverse_rotate_a(data); */
 	}
 	ft_check_stack(data->a_stack);
 }
@@ -61,7 +84,7 @@ void	ft_order_3(t_data_lst *data)
 		ft_swap_a(data);
 }
 
-void	ft_algorithm(t_data_lst *data) //revisar esta costra infecta
+void	ft_algorithm(t_data_lst *data)
 {
 	if (ft_pushswap_lstsize(data->a_stack) == 2)
 	{
@@ -73,14 +96,16 @@ void	ft_algorithm(t_data_lst *data) //revisar esta costra infecta
 		ft_order_3(data);
 		ft_check_order(data->a_stack);
 	}
-	else if (ft_pushswap_lstsize(data->a_stack) == 5)
+	else if (ft_pushswap_lstsize(data->a_stack) <= 6)
 	{
-		ft_order_5(data);
+		ft_full_order(data);
 		ft_check_order(data->a_stack);
 	}
-/*	else if (ft_pushswap_lstsize(data->a_stack) == 6)
+	else if (ft_pushswap_lstsize(data->a_stack) > 6)
 	{
-		ft_order_6(data->a_stack);
+		ft_check_stack(data->a_stack);
+		ft_pre_order(data);
+		ft_full_order(data);
 		ft_check_order(data->a_stack);
-	} */
+	}
 }

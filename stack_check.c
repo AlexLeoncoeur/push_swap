@@ -6,11 +6,24 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:21:43 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 13:55:36 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:23:23 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_get_a_cost(t_data_lst *data, t_stack_list *tmp)
+{
+	return ((ft_pushswap_lstsize(data->a_stack) + 1) - (tmp->pos + 1));
+}
+
+static void	ft_final_cost(t_data_lst *data, t_stack_list *b, t_stack_list *a)
+{
+	if ((a->pos) <= (ft_pushswap_lstsize(data->a_stack) / 2))
+		b->cost_a = a->pos;
+	else
+		b->cost_a = ft_get_a_cost(data, a) * -1;
+}
 
 static int	ft_min_index(t_stack_list *stack, int index)
 {
@@ -34,11 +47,6 @@ static int	ft_min_index(t_stack_list *stack, int index)
 	return (min_index);
 }
 
-static int	ft_get_a_cost(t_data_lst *data, t_stack_list *tmp)
-{
-	return ((ft_pushswap_lstsize(data->a_stack) + 1) - (tmp->pos + 1));
-}
-
 void	ft_calculate_cost(t_data_lst *data)
 {
 	int				i;
@@ -56,18 +64,15 @@ void	ft_calculate_cost(t_data_lst *data)
 		tmp = data->a_stack;
 		while (tmp)
 		{
-			ft_printf("index: %d\n", tmp->index);
 			if (tmp->index == ft_min_index(data->a_stack, aux->index))
 			{
-				ft_printf("min_index: %d\n", ft_min_index(data->a_stack, aux->index));
-				if ((tmp->pos) <= (ft_pushswap_lstsize(data->a_stack) / 2))
-					aux->cost_a = tmp->pos;
-				else
-					aux->cost_a = ft_get_a_cost(data, tmp) * -1;
-				ft_printf("cost_a: %d\n", aux->cost_a);
+				ft_final_cost(data, aux, tmp);
 			}
 			tmp = tmp->next;
 		}
+		/* ft_printf("index: %d\n", aux->index);
+		ft_printf("min_index: %d\n", ft_min_index(data->a_stack, aux->index));
+		ft_printf("cost: %d\n", aux->cost_a); */
 		if (!aux->cost_a)
 			aux->cost_a = 0;
 		aux = aux->next;

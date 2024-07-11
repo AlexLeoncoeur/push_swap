@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/10 17:16:26 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:39:23 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void			ft_swap_both(t_data_lst *data);
 
 /*--------------------------------- Algorithm --------------------------------*/
 
+void			ft_full_order(t_data_lst *data);
 void			ft_order_3(t_data_lst *data);
-void			ft_order_5(t_data_lst *data);
 void			ft_algorithm(t_data_lst *data);
 
 /*----------------------------- Error management -----------------------------*/
