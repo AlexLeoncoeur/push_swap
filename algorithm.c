@@ -6,28 +6,36 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:39:44 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/10 17:27:31 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:58:38 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_order_5(t_data_lst *data) //Bastante costra, hacer una funcion que lo automatice
+void	ft_order_5(t_data_lst *data)
 {
 	t_stack_list	*best_move;
 	int				i;
 
 	i = 0;
 	ft_push_b(data);
-	ft_printf("cagamos\n");
 	ft_push_b(data);
 	ft_order_3(data);
-	ft_check_cost(data);
 	while (i < 2)
 	{
+		ft_check_cost(data);
 		best_move = ft_best_move(data);
 		ft_execute_move(best_move, data);
+		i++;
 	}
+	while (data->a_stack->index != 0)
+	{
+		if (data->a_stack->index > data->a_stack->next->index)
+			ft_rotate_a(data);
+		if (data->a_stack->index != 0)
+			ft_reverse_rotate_a(data);
+	}
+	ft_check_stack(data->a_stack);
 }
 
 void	ft_order_3(t_data_lst *data)
