@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:39:44 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 18:02:51 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:35:05 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,14 @@ void	ft_full_order(t_data_lst *data)
 		ft_check_cost(data);
 		best_move = ft_best_move(data);
 		ft_execute_move(best_move, data);
+		/* if (data->a_stack->index > data->a_stack->next->index)
+			ft_rotate_a(data); */
 		i++;
 	}
 	while (data->a_stack->index != 0)
 	{
 		if (data->a_stack->index != 0)
 			ft_reverse_rotate_a(data);
-		/* if (data->a_stack->index > data->a_stack->next->index)
-			ft_rotate_a(data);
-		if (data->a_stack->index != 0)
-			ft_reverse_rotate_a(data); */
 	}
 	ft_check_stack(data->a_stack);
 }

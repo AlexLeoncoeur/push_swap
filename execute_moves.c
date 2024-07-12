@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:15:00 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 13:45:29 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:33:07 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_recalculate_cost(t_stack_list *node)
 		node->cost_a++;
 	if (node->cost_b > 0)
 		node->cost_b--;
-	if (node->cost_b > 0)
+	if (node->cost_b < 0)
 		node->cost_b++;
 }
 
@@ -41,7 +41,7 @@ void	ft_execute_move(t_stack_list *node, t_data_lst *data)
 			ft_reverse_rotate_a(data);
 		else if (node->cost_a > 0)
 			ft_rotate_a(data);
-		if (node->cost_b < 0)
+		else if (node->cost_b < 0)
 			ft_reverse_rotate_b(data);
 		else if (node->cost_b > 0)
 			ft_rotate_b(data);

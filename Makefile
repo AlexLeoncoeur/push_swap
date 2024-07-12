@@ -35,4 +35,15 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libft
+py3:	re
+		python3 python_visualizer.py `ruby -e "puts (1..3).to_a.shuffle.join(' ')"`
+py5:	re
+		python3 python_visualizer.py `ruby -e "puts (1..5).to_a.shuffle.join(' ')"`
+py10:	re
+		python3 python_visualizer.py `ruby -e "puts (1..10).to_a.shuffle.join(' ')"`
+py100:	re
+		python3 python_visualizer.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
+py500:	re
+		python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
+
+.PHONY: all clean fclean re bonus libft $(LIBFT_LIB_PATH) py3 py5 py10 py100 py500

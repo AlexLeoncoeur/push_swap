@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 18:26:47 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:33:43 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ t_stack_list	*ft_prepare_stack_a(char **numbers)
 		i++;
 	//if (atoi_checker() == 1);
 	a_stack = ft_pushswap_lstnew(ft_atoi(numbers[i]));
-	while (i-- >= 0)
+	i--;
+	a_stack->index = -2;
+	a_stack->cost_a = '\0';
+	while (i >= 0)
 	{
 		aux = ft_pushswap_lstnew(ft_atoi(numbers[i]));
 		ft_pushswap_lstadd_back(&aux, a_stack);
@@ -93,6 +96,7 @@ t_stack_list	*ft_prepare_stack_a(char **numbers)
 		aux->cost_a = '\0';
 		ft_printf("%d\n", aux->nb);
 		a_stack = aux;
+		i--;
 	}
 	return (a_stack);
 }

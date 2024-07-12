@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/09 11:36:48 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:34:04 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	main(int argc, char **argv)
 		printf("%d\n", aux->nb);
 		aux = aux->next;
 	}
-	return (0);
+	free(data_lst->a_stack);
+	return (free(data_lst), 0);
 }
 /* 
 1: Revisar el comportamiento de ft_check_stack con cost_a y cost_b
