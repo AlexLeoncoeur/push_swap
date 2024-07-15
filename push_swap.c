@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/15 11:45:28 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:28:47 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_prep_stack_data(data_lst->a_stack);
 	ft_algorithm(data_lst);
+	t_stack_list *aux = data_lst->a_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	}
 	free(data_lst->a_stack);
 	return (free(data_lst), 0);
 }
@@ -58,12 +66,3 @@ int	main(int argc, char **argv)
 	printf("%d %d %d |a\n", a_stack->nb, a_stack->next->nb, a_stack->next->next->nb);
 	printf("%d |b\n", b_stack->nb);
 */
-
-/* 	t_stack_list *aux = data_lst->a_stack;
-	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
-	{
-		printf("%d ", aux->index);
-		printf("%d ", aux->pos);
-		printf("%d\n", aux->nb);
-		aux = aux->next;
-	} */

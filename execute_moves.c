@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:15:00 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/12 15:33:07 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:54:56 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 
 void	ft_recalculate_cost(t_stack_list *node)
 {
-	if (node->cost_a > 0)
-		node->cost_a--;
-	if (node->cost_a < 0)
+	if (node->cost_a < 0 && node->cost_b < 0)
+	{
 		node->cost_a++;
-	if (node->cost_b > 0)
-		node->cost_b--;
-	if (node->cost_b < 0)
 		node->cost_b++;
+	}
+	else if (node->cost_a > 0 && node->cost_b > 0)
+	{
+		node->cost_a--;
+		node->cost_b--;
+	}
+	else if (node->cost_a < 0)
+		node->cost_a++;
+	else if (node->cost_a > 0)
+		node->cost_a--;
+	else if (node->cost_b < 0)
+		node->cost_b++;
+	else if (node->cost_b > 0)
+		node->cost_b--;
 }
 
 void	ft_execute_move(t_stack_list *node, t_data_lst *data)
@@ -33,7 +43,7 @@ void	ft_execute_move(t_stack_list *node, t_data_lst *data)
 			ft_push_a(data);
 			break ;
 		}
-		else if (node->cost_a < 0 && node->cost_b < 0)
+		if (node->cost_a < 0 && node->cost_b < 0)
 			ft_reverse_rotate_both(data);
 		else if (node->cost_a > 0 && node->cost_b > 0)
 			ft_rotate_both(data);

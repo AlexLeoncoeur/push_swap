@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:21:43 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/12 17:16:24 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:19:19 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_get_a_cost(t_data_lst *data, t_stack_list *tmp)
 {
-	return ((ft_pushswap_lstsize(data->a_stack) + 1) - (tmp->pos + 1));
+	return ((ft_pushswap_lstsize(data->a_stack)) - (tmp->pos));
 }
 
 static void	ft_final_cost(t_data_lst *data, t_stack_list *b, t_stack_list *a)

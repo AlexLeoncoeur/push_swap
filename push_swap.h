@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/15 12:23:03 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:39:13 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			ft_prep_stack_data(t_stack_list *stack);
 void			ft_check_stack(t_stack_list *stack_lst);
 void			ft_calculate_cost(t_data_lst *data);
 void			ft_check_cost(t_data_lst *data);
-int				ft_check_index(t_stack_list *stack);
+void			ft_check_index(t_stack_list *stack);
 
 /*------------------------------ List functions ------------------------------*/
 
