@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/15 13:28:47 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:32:20 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,24 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_prep_stack_data(data_lst->a_stack);
 	ft_algorithm(data_lst);
-	t_stack_list *aux = data_lst->a_stack;
-	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
-	{
-		printf("%d ", aux->index);
-		printf("%d ", aux->pos);
-		printf("%d\n", aux->nb);
-		aux = aux->next;
-	}
-	free(data_lst->a_stack);
+	if (argc == 2)
+		ft_free(numbers);
+	ft_pushswap_lstclear(&data_lst->a_stack);
 	return (free(data_lst), 0);
 }
 /* 
-1: Revisar el comportamiento de ft_check_stack con cost_a y cost_b
-2: 
 	t_stack_list	*b_stack = NULL;
 	printf("%d %d %d %d\n", a_stack->nb, a_stack->next->nb, a_stack->next->next->nb, a_stack->next->next->next->nb);
 	ft_push(&a_stack, &b_stack);
 	printf("%d %d %d |a\n", a_stack->nb, a_stack->next->nb, a_stack->next->next->nb);
 	printf("%d |b\n", b_stack->nb);
 */
+
+	/* t_stack_list *aux = data_lst->a_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	} */

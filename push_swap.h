@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/15 13:39:13 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:18:11 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void			ft_algorithm(t_data_lst *data);
 
 /*----------------------------- Error management -----------------------------*/
 
+void			ft_pushswap_lstclear(t_stack_list **lst);
 void			ft_puterrorstr(char *str);
 void			ft_free(char **str);
 

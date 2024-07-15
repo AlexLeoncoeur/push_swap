@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:12:44 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/03 14:13:34 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:26:52 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,18 @@ void	ft_free(char **str)
 		ptr++;
 	}
 	free(str);
+}
+
+void	ft_pushswap_lstclear(t_stack_list **lst)
+{
+	t_stack_list	*aux;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		aux = *lst;
+		*lst = (*lst)->next;
+		free(aux);
+	}
 }
