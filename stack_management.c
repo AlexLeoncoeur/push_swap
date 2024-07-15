@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/12 14:33:43 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:20:56 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,6 @@ void	ft_check_cost(t_data_lst *data)
 	ft_check_stack(data->a_stack);
 	ft_check_stack(data->b_stack);
 	ft_calculate_cost(data);
-	t_stack_list *aux = data->a_stack;
-	for (int i = 0; i < ft_pushswap_lstsize(data->a_stack); i++)
-	{
-		printf("%d ", aux->index);
-		printf("%d ", aux->pos);
-		printf("%d\n", aux->nb);
-		aux = aux->next;
-	}
-	printf("\n");
-	aux = data->b_stack;
-	for (int i = 0; i < ft_pushswap_lstsize(data->b_stack); i++)
-	{
-		printf("%d ", aux->index);
-		printf("%d ", aux->pos);
-		printf("%d ", aux->cost_a);
-		printf("%d ", aux->cost_b);
-		printf("%d\n", aux->nb);
-		aux = aux->next;
-	}
-	printf("\n");
 }
 
 int	ft_check_index(t_stack_list *stack) //comprobar si esto funciona
@@ -83,18 +63,19 @@ t_stack_list	*ft_prepare_stack_a(char **numbers)
 	i = 0;
 	while (numbers[i + 1])
 		i++;
-	//if (atoi_checker() == 1);
-	a_stack = ft_pushswap_lstnew(ft_atoi(numbers[i]));
-	i--;
+	if (ft_min_max_checker(numbers[i]) == 1)
+		ft_puterrorstr("Error: Argument is out of int limit\n");
+	a_stack = ft_pushswap_lstnew(ft_atoi(numbers[i--]));
 	a_stack->index = -2;
 	a_stack->cost_a = '\0';
 	while (i >= 0)
 	{
+		if (ft_min_max_checker(numbers[i]) == 1)
+			ft_puterrorstr("Error: Argument is out of int limit\n");
 		aux = ft_pushswap_lstnew(ft_atoi(numbers[i]));
 		ft_pushswap_lstadd_back(&aux, a_stack);
 		aux->index = -2;
 		aux->cost_a = '\0';
-		ft_printf("%d\n", aux->nb);
 		a_stack = aux;
 		i--;
 	}
@@ -117,3 +98,24 @@ void	ft_check_stack(t_stack_list *stack_lst)
 		i++;
 	}
 }
+
+/* 	t_stack_list *aux = data->a_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data->a_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	}
+	printf("\n");
+	aux = data->b_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data->b_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d ", aux->cost_a);
+		printf("%d ", aux->cost_b);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	}
+	printf("\n"); */

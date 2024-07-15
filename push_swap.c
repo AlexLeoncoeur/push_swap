@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/12 15:34:04 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:45:28 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,19 @@ int	main(int argc, char **argv)
 
 	numbers = NULL;
 	if (argc <= 1)
-		return (ft_puterrorstr("Error: Invalid argument\n"), 1);
+		ft_puterrorstr("Error: Too few arguments\n");
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
 	else if (argc > 2)
 		numbers = &argv[1];
-	if (ft_check_nb(numbers) == 1 || ft_check_char(numbers) == 1)
-		return (ft_puterrorstr("Error: Invalid argument\n"), 1);
+	ft_check_nb(numbers);
+	ft_check_char(numbers);
 	data_lst = ft_define_data_lst(argc, argv, NULL);
 	data_lst->a_stack = ft_prepare_stack_a(numbers);
 	if (ft_check_order(data_lst->a_stack) == 0)
 		return (0);
 	ft_prep_stack_data(data_lst->a_stack);
 	ft_algorithm(data_lst);
-	t_stack_list *aux = data_lst->a_stack;
-	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
-	{
-		printf("%d ", aux->index);
-		printf("%d ", aux->pos);
-		printf("%d\n", aux->nb);
-		aux = aux->next;
-	}
 	free(data_lst->a_stack);
 	return (free(data_lst), 0);
 }
@@ -66,3 +58,12 @@ int	main(int argc, char **argv)
 	printf("%d %d %d |a\n", a_stack->nb, a_stack->next->nb, a_stack->next->next->nb);
 	printf("%d |b\n", b_stack->nb);
 */
+
+/* 	t_stack_list *aux = data_lst->a_stack;
+	for (int i = 0; i < ft_pushswap_lstsize(data_lst->a_stack); i++)
+	{
+		printf("%d ", aux->index);
+		printf("%d ", aux->pos);
+		printf("%d\n", aux->nb);
+		aux = aux->next;
+	} */

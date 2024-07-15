@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/11 17:39:23 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:23:03 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ typedef struct s_data_lst
 	t_stack_list	*b_stack;
 }	t_data_lst;
 
-/*----------------------------- Common functions -----------------------------*/
+/*-------------------------------- Argv check --------------------------------*/
 
 int				ft_strcmp(const char *s1, const char *s2);
+int				ft_min_max_checker(const char *str);
 int				ft_check_order(t_stack_list *stack);
 int				ft_check_char(char **numbers);
 int				ft_check_nb(char **numbers);

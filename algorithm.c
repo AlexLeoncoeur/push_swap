@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 17:39:44 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/12 16:35:05 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:38:19 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 static void	ft_pre_order(t_data_lst *data)
 {
 	t_stack_list	*aux;
+	int				h_length;
 	int				length;
 	int				i;
 
-	length = ft_pushswap_lstsize(data->a_stack) / 2;
+	h_length = ft_pushswap_lstsize(data->a_stack) / 2;
+	length = ft_pushswap_lstsize(data->a_stack);
 	i = 0;
-	while (i <= ft_pushswap_lstsize(data->a_stack))
+	while (i <= length)
 	{
 		aux = data->a_stack;
-		if (aux->index < length)
+		if (aux->index < h_length)
 			ft_push_b(data);
 		else
 			ft_rotate_a(data);
@@ -47,8 +49,6 @@ void	ft_full_order(t_data_lst *data)
 		ft_check_cost(data);
 		best_move = ft_best_move(data);
 		ft_execute_move(best_move, data);
-		/* if (data->a_stack->index > data->a_stack->next->index)
-			ft_rotate_a(data); */
 		i++;
 	}
 	while (data->a_stack->index != 0)
@@ -107,3 +107,6 @@ void	ft_algorithm(t_data_lst *data)
 		ft_check_order(data->a_stack);
 	}
 }
+
+		/* if (data->a_stack->index > data->a_stack->next->index)
+			ft_rotate_a(data); */

@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:54:13 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:49:45 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:15:25 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,43 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (aux[i] - tmp[i]);
 }
 
+static int	ignorespace(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r' || c == ' ')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_min_max_checker(const char *str)
+{
+	int		i;
+	int		sign;
+	long	result;
+
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (ignorespace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + str[i] - 48;
+		i++;
+	}
+	result *= sign;
+	if (result < MIN || result > MAX)
+		return (1);
+	return (0);
+}
+
 int	ft_check_nb(char **numbers)
 {
 	int		i;
@@ -39,7 +76,7 @@ int	ft_check_nb(char **numbers)
 		while (numbers[j])
 		{
 			if (ft_strcmp(numbers[i], numbers[j]) == 0)
-				return (1);
+				ft_puterrorstr("Error: Argument is repetead\n");
 			j++;
 		}
 		i++;
@@ -61,7 +98,7 @@ int	ft_check_char(char **numbers)
 		while (numbers[i][j])
 		{
 			if ((numbers[i][j] < '0' || numbers[i][j] > '9'))
-				return (1);
+				ft_puterrorstr("Error: Argument is not a number\n");
 			j++;
 		}
 		i++;
