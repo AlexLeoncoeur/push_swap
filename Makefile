@@ -1,37 +1,49 @@
-CFILES = push_swap.c push_swap_utils.c stack_management.c error.c leaks.c \
-check_argv.c algorithm.c stack_check.c execute_moves.c ./order_cmd/push.c \
-./order_cmd/reverse_rotate.c ./order_cmd/rotate.c ./order_cmd/swap.c
+CFILES = push_swap.c push_swap_utils.c stack_management.c error.c \
+leaks.c check_argv.c algorithm.c stack_check.c execute_moves.c
+
+ORDER_CFILES = push.c reverse_rotate.c rotate.c swap.c
 
 BONUS_CFILES = 
 
-OFILES = $(CFILES:.c=.o)
 BONUS_OFILES = $(BONUS_CFILES:.c=.o)
 
 CC = clang
 NAME = push_swap
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+SRC_DIR = src/
+ORDER_SRC_DIR = src/order_cmd/
+OBJ_DIR = objs/
+OFILES = $(addprefix $(OBJ_DIR), $(CFILES:.c=.o))
+ORDER_OFILES = $(addprefix $(OBJ_DIR)order_cmd/, $(ORDER_CFILES:.c=.o))
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)order_cmd/%.o: $(ORDER_SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)/order_cmd/
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: libft $(NAME)
-$(NAME): $(OFILES)
-	@ $(CC) $(CFLAGS) $(OFILES) libft/libft.a -o $(NAME)
+$(NAME): $(OFILES) $(ORDER_OFILES)
+	@ $(CC) $(CFLAGS) $(OFILES) $(ORDER_OFILES) include/libft/libft.a -o $(NAME)
 
 bonus: libft $(NAME)_bonus
 $(NAME)_bonus: $(BONUS_OFILES)
-	@ $(CC) $(CFLAGS) $(BONUS_OFILES) libft/libft.a -o $(NAME)_bonus
+	@ $(CC) $(CFLAGS) $(BONUS_OFILES)  include/libft/libft.a -o $(NAME)_bonus
 
 libft:
-	@ make -C libft/ bonus
+	@ make -C  include/libft/ bonus
 
 clean:
-	@ rm -f $(OFILES) $(BONUS_OFILES)
-	@ make -C libft/ clean
+	@ rm -f $(OFILES) $(ORDER_OFILES) $(BONUS_OFILES)
+	@ rm -d $(OBJ_DIR)order_cmd/ $(OBJ_DIR)
+	@ make -C include/libft/ clean
 
 fclean: clean
 	@ rm -f $(NAME) $(NAME)_bonus
-	@ make -C libft/ fclean
+	@ make -C include/libft/ fclean
 
 re: fclean all
 
