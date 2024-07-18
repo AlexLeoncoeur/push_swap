@@ -54,7 +54,7 @@ $(BONUS_OBJ_DIR)order_cmd/%.o: $(BONUS_ORDER_SRC_DIR)%.c
 CC = clang
 NAME = push_swap
 BONUS_NAME = checker_bonus
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 all: libft $(NAME)
 $(NAME): $(OFILES) $(ORDER_OFILES)

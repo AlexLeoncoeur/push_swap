@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/18 15:42:05 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:14:57 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,23 @@ int	main(int argc, char **argv)
 	char			**numbers;
 
 	numbers = NULL;
-	if (argc <= 1 || ft_empty_arg(argc, argv) == 1)
-		ft_puterrorstr("Error: Invalid argument\n");
-	if (argc == 2)
+	if (ft_empty_arg(argc, argv) == 1)
+		ft_puterrorstr("Error: Empty argument\n");
+	if (argc == 2 && ft_strlen(argv[1]) > 1)
 		numbers = ft_split(argv[1], ' ');
 	else if (argc > 2)
 		numbers = &argv[1];
+	else
+		return (1);
 	ft_check_nb(numbers);
 	ft_check_char(numbers);
 	data_lst = ft_define_data_lst(argc, argv, NULL);
 	data_lst->a_stack = ft_prepare_stack_a(numbers);
 	if (ft_check_order(data_lst->a_stack) == 0)
-		return (0);
+		return (ft_clean(numbers, argc, data_lst), 0);
 	ft_prep_stack_data(data_lst->a_stack);
 	ft_algorithm(data_lst);
-	if (argc == 2)
-		ft_free(numbers);
-	ft_pushswap_lstclear(&data_lst->a_stack);
-	return (free(data_lst), 0);
+	return (ft_clean(numbers, argc, data_lst), 0);
 }
 
 	/* t_stack_list *aux = data_lst->a_stack;

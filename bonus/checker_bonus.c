@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/18 15:40:56 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:47:20 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,26 +88,23 @@ int	main(int argc, char **argv)
 	t_data_lst		*data_lst;
 	char			**numbers;
 
-	numbers = NULL;
-	if (argc <= 1 || ft_empty_arg(argc, argv) == 1)
+	if (ft_empty_arg(argc, argv) == 1)
 		ft_puterrorstr("Error: Invalid argument\n");
-	if (argc == 2)
+	if (argc == 2 && ft_strlen(argv[1]) > 1)
 		numbers = ft_split(argv[1], ' ');
 	else if (argc > 2)
 		numbers = &argv[1];
+	else
+		return (1);
 	ft_check_nb(numbers);
 	ft_check_char(numbers);
 	data_lst = ft_define_data_lst(argc, argv, NULL);
 	data_lst->a_stack = ft_prepare_stack_a(numbers);
-	if (ft_check_order(data_lst->a_stack) == 0)
-		return (0);
-	ft_read_orders(data_lst);
+	if (ft_check_order(data_lst->a_stack) == 1)
+		ft_read_orders(data_lst);
 	if (ft_check_order(data_lst->a_stack) == 0 && !data_lst->b_stack)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	if (argc == 2)
-		ft_free(numbers);
-	ft_pushswap_lstclear(&data_lst->a_stack);
-	return (free(data_lst), 0);
+	return (ft_clean(numbers, argc, data_lst), 0);
 }
