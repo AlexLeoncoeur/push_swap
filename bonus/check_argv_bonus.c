@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:54:13 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/17 16:51:12 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:25:25 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_check_nb(char **numbers)
 	int		j;
 
 	i = 0;
+	if (!numbers)
+		ft_puterrorstr("Error: Invalid argument\n");
 	while (numbers[i])
 	{
 		j = i + 1;
@@ -75,6 +77,8 @@ int	ft_check_char(char **numbers)
 	int	j;
 
 	i = 0;
+	if (!numbers)
+		ft_puterrorstr("Error: Invalid argument\n");
 	while (numbers[i])
 	{
 		j = 0;

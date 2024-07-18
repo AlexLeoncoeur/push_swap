@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:29 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/17 13:16:59 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:42:05 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,28 @@ t_data_lst	*ft_define_data_lst(int argc, char **argv, t_stack_list *a_stack)
 	return (aux);
 }
 
+static int	ft_empty_arg(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < (argc))
+	{
+		if (!argv[i][0])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data_lst		*data_lst;
 	char			**numbers;
 
 	numbers = NULL;
-	if (argc <= 1)
-		ft_puterrorstr("Error: Too few arguments\n");
+	if (argc <= 1 || ft_empty_arg(argc, argv) == 1)
+		ft_puterrorstr("Error: Invalid argument\n");
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
 	else if (argc > 2)

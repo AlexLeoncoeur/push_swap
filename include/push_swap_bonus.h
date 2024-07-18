@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:31:50 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/17 13:16:19 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:13:42 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_data_lst
 
 /*-------------------------------- Argv check --------------------------------*/
 
-int				ft_strcmp(const char *s1, const char *s2);
 int				ft_min_max_checker(const char *str);
 int				ft_check_order(t_stack_list *stack);
 int				ft_check_char(char **numbers);
@@ -64,9 +63,6 @@ t_stack_list	*ft_pushswap_lstnew(int nb);
 
 /*----------------------------- Movement commands ----------------------------*/
 
-t_stack_list	*ft_best_move(t_data_lst *data);
-void			ft_execute_move(t_stack_list *node, t_data_lst *data);
-
 void			ft_push_a(t_data_lst *data);
 void			ft_push_b(t_data_lst *data);
 
@@ -81,12 +77,6 @@ void			ft_rotate_both(t_data_lst *data);
 void			ft_swap_a(t_data_lst *data);
 void			ft_swap_b(t_data_lst *data);
 void			ft_swap_both(t_data_lst *data);
-
-/*--------------------------------- Algorithm --------------------------------*/
-
-void			ft_full_order(t_data_lst *data);
-void			ft_order_3(t_data_lst *data);
-void			ft_algorithm(t_data_lst *data);
 
 /*----------------------------- Error management -----------------------------*/
 

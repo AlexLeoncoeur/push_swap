@@ -6,7 +6,7 @@
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:37:12 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/17 13:18:19 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:37:37 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ static void	ft_push(t_stack_list **lst, t_stack_list **r_lst)
 void	ft_push_a(t_data_lst *data)
 {
 	ft_push(&data->b_stack, &data->a_stack);
-	ft_printf("pa\n");
 }
 
 void	ft_push_b(t_data_lst *data)
 {
 	ft_push(&data->a_stack, &data->b_stack);
-	ft_printf("pb\n");
 }

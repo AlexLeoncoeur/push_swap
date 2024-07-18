@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_management_bonus.c                           :+:      :+:    :+:   */
+/*   stack_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarenas- <aarenas-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:20:19 by aarenas-          #+#    #+#             */
-/*   Updated: 2024/07/17 13:18:05 by aarenas-         ###   ########.fr       */
+/*   Updated: 2024/07/17 13:17:07 by aarenas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../include/push_swap.h"
 
 void	ft_prep_stack_data(t_stack_list *stack)
 {
