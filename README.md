@@ -16,8 +16,6 @@ Push Swap is a sorting algorithm project designed to help you understand and imp
   - [Sorting 2, 3, or More Numbers](#sorting-2-3-or-more-numbers)
 - [Examples](#examples)
 - [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
