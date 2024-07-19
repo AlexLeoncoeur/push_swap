@@ -9,7 +9,6 @@ Push Swap is a sorting algorithm project designed to help you understand and imp
 - [Introduction](#introduction)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Operations](#operations)
 - [Sorting Algorithms](#sorting-algorithms)
@@ -30,23 +29,7 @@ Push Swap is a sorting algorithm project designed to help you understand and imp
 ## Requirements
 
 - A C compiler (gcc or clang).
-- Make.
 - Basic understanding of stacks and sorting algorithms.
-
-## Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your_username/push_swap.git
-    cd push_swap
-    ```
-
-2. Compile the project:
-
-    ```bash
-    make
-    ```
 
 ## Usage
 
@@ -126,24 +109,27 @@ rra
 For larger sets of numbers, the algorithm involves splitting the list into manageable chunks, pushing parts of the list to stack `b`, and then sorting and merging them back into stack `a` using the predefined operations. This process includes:
 
 1. Finding the median and pushing elements below the median to stack `b`.
-2. Recursively sorting the remaining elements in stack `a`.
-3. Pushing elements back from stack `b` to stack `a` in the correct order.
+2. Pushing all but 3 elements into `b`
+3. Sorting the remaining 3 elements in stack `a`.
+4. Pushing elements back from stack `b` to stack `a` in the correct order.
 
 This divide and conquer approach helps manage the complexity and reduces the number of operations needed.
 
 ## Examples
 
-To see how the program works, you can use the following example:
+To see how the program works, in the files it is included a python program (pyviz.py) that works like a visualizer. The original creator is a 42 peer called <a href="https://github.com/o-reo/push_swap"> eruaud:
 
 ```bash
-./push_swap 3 2 1
+make py3
 ```
-
-Expected output:
-
 ```bash
-sa
-rra
+make py5
+```
+```bash
+make py10
+```
+```bash
+make py100
 ```
 
 ## Testing
@@ -173,17 +159,3 @@ Expected output:
 ```bash
 OK
 ```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a pull request.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
