@@ -1,35 +1,35 @@
 # Push Swap
 
-## Introduction
+## Introduction 📘
 
 Push Swap is a sorting algorithm project designed to help you understand and implement various sorting techniques using two stacks, `a` and `b`. The goal is to sort a list of integers in ascending order with the minimum number of operations. The allowed operations are predefined and must be used effectively to achieve the optimal result.
 
-## Table of Contents
+## Table of Contents 📑
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Operations](#operations)
-- [Sorting Algorithms](#sorting-algorithms)
-  - [Sorting by Costs](#sorting-by-costs)
-  - [Sorting 2, 3, or More Numbers](#sorting-2-3-or-more-numbers)
-- [Examples](#examples)
-- [Testing](#testing)
+- [Introduction](#introduction) 📘
+- [Features](#features) 🌟
+- [Requirements](#requirements) 📋
+- [Usage](#usage) 💻
+- [Operations](#operations) ⚙️
+- [Sorting Algorithms](#sorting-algorithms) 📊
+  - [Sorting by Costs](#sorting-by-costs) 📉
+  - [Sorting 2, 3, or More Numbers](#sorting-2-3-or-more-numbers) 🔢
+- [Examples](#examples) 🔍
+- [Testing](#testing) ✅
 
-## Features
+## Features 🌟
 
 - Efficient sorting of integers using stack-based operations.
 - Implementation of various sorting algorithms.
 - Handling of errors and edge cases.
 - Optimization to minimize the number of operations.
 
-## Requirements
+## Requirements 📋
 
 - A C compiler (gcc or clang).
 - Basic understanding of stacks and sorting algorithms.
 
-## Usage
+## Usage 💻
 
 Run the `push_swap` program with a list of integers to sort:
 
@@ -43,7 +43,7 @@ For example:
 ./push_swap 4 67 3 87 23
 ```
 
-## Operations
+## Operations ⚙️
 
 The allowed operations are:
 
@@ -59,15 +59,15 @@ The allowed operations are:
 - `rrb`: Reverse rotate stack `b` (shift all elements down by 1).
 - `rrr`: `rra` and `rrb` at the same time.
 
-## Sorting Algorithms
+## Sorting Algorithms 📊
 
-### Sorting by Costs
+### Sorting by Costs 📉
 
 The sorting by costs algorithm aims to minimize the total number of operations required to sort the stack. The main idea is to calculate the "cost" of moving each element into its correct position and then execute the sequence of operations that has the lowest cost. 
 
 The cost for each element can be calculated based on the number of moves needed to bring it to the top of its current stack and then to its correct position in the sorted stack. The possible moves include rotations and reverse rotations. By evaluating the cost for each possible move, we can determine the most efficient sequence of operations to sort the stack.
 
-### Sorting 2, 3, or More Numbers
+### Sorting 2, 3, or More Numbers 🔢
 
 #### Sorting 2 Numbers
 
@@ -113,7 +113,7 @@ For larger sets of numbers, the algorithm involves splitting the list into manag
 
 This divide and conquer approach helps manage the complexity and reduces the number of operations needed.
 
-## Examples
+## Examples 🔍
 
 To see how the program works, in the files it is included a python program (pyviz.py) that works like a visualizer. The original creator is a 42 peer called <a href="https://github.com/o-reo/push_swap"> eruaud:
 
@@ -130,7 +130,7 @@ make py10
 make py100
 ```
 
-## Testing
+## Testing ✅
 
 To check the validity and efficiency of your solution, you can use the provided checker program:
 
