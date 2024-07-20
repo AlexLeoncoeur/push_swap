@@ -143,13 +143,13 @@ To check the validity and efficiency of your solution, you can use the provided 
 2. Run the checker with your operations:
 
     ```bash
-    ./push_swap [list of integers] | ./checker [list of integers]
+    ./push_swap [list of integers] | ./checker_bonus [list of integers]
     ```
 
 For example:
 
 ```bash
-./push_swap 3 2 1 | ./checker 3 2 1
+./push_swap 3 2 1 | ./checker_bonus 3 2 1
 ```
 
 Expected output:
