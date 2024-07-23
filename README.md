@@ -6,16 +6,16 @@ Push Swap is a sorting algorithm project designed to help you understand and imp
 
 ## Table of Contents 📑
 
-- [Introduction](#introduction) 📘
-- [Features](#features) 🌟
-- [Requirements](#requirements) 📋
-- [Usage](#usage) 💻
-- [Operations](#operations) ⚙️
-- [Sorting Algorithms](#sorting-algorithms) 📊
-  - [Sorting by Costs](#sorting-by-costs) 📉
-  - [Sorting 2, 3, or More Numbers](#sorting-2-3-or-more-numbers) 🔢
-- [Examples](#examples) 🔍
-- [Testing](#testing) ✅
+- [Introduction](#introduction-) 📘
+- [Features](#features-) 🌟
+- [Requirements](#requirements-) 📋
+- [Usage](#usage-) 💻
+- [Operations](#operations-) ⚙️
+- [Sorting Algorithms](#sorting-algorithms-) 📊
+  - [Sorting by Costs](#sorting-by-costs-) 📉
+  - [Sorting 2, 3, or More Numbers](#sorting-2-3-or-more-numbers-) 🔢
+- [Examples](#examples-) 🔍
+- [Testing](#testing-) ✅
 
 ## Features 🌟
 
