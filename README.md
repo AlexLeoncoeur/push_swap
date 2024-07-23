@@ -132,7 +132,7 @@ make py100
 
 ## Testing ✅
 
-To check the validity and efficiency of your solution, you can use the provided checker program:
+To check the validity and efficiency of your solution, you can use the checker program that I made as part of the bonus:
 
 1. Compile the checker:
 
@@ -157,3 +157,5 @@ Expected output:
 ```bash
 OK
 ```
+
+The functionality of the checker is similar to that of the push_swap program but instead of finding the correct move it only executes the moves it recieves through the here_doc and checks if the final result is correct.
