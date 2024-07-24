@@ -118,15 +118,6 @@ This divide and conquer approach helps manage the complexity and reduces the num
 To see how the program works, in the files it is included a python program (pyviz.py) that works like a visualizer. The original creator is a 42 peer called <a href="https://github.com/o-reo/push_swap"> eruaud:
 
 ```bash
-make py3
-```
-```bash
-make py5
-```
-```bash
-make py10
-```
-```bash
 make py100
 ```
 
